@@ -1,0 +1,50 @@
+div#user-file {
+    /* border-radius: 100%; */
+    width: 20% !important;
+    border: 1px solid #0999D5 !important;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.col.text-secondary.uss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#user-file .preview-container img {
+    width: auto;
+    height: 50% !important;
+}
+
+tr th {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid;
+}
+
+tr td {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid;
+}
+
+.sb a {
+    background: #0999D5;
+    font-size: 18px;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+}
+
+td.sbb {
+    padding: 55px;
+    border: none;
+}
+
+td.viw {
+    text-align: center;
+}

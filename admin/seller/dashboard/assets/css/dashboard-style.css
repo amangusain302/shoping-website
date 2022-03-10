@@ -1,0 +1,16 @@
+
+:root{
+	--primary-color:#0073ff;
+	--background-color: #e0ebf9;
+	--secondary-color:#FF9900 ;
+	--font-color:#F4F6F7;
+}
+
+.product-cards{
+    height: 330px;
+    border-radius: 13px;
+    overflow: hidden;
+}
+.product-cards button{
+    background-color: var(--primary-color);
+}

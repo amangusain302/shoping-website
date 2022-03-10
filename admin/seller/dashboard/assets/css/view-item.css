@@ -1,0 +1,155 @@
+.container-fluidd.c {
+    margin: 100px 100px 50px 40px !important;
+}
+
+.product-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* align-items: center; */
+}
+
+.wrappper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 10px;
+}
+
+select.set-ww {
+    width: 50%;
+    border: 1px solid grey;
+    border-radius: 2px;
+    opacity: 0.5;
+}
+
+.set-ww {
+    width: 30px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    opacity: 0.5;
+    text-align: center;
+}
+
+.brand p span {
+    background-color: #008000;
+    color: white;
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+span.fa.fa-star.ratingg {
+    color: gold;
+}
+
+.brand h2 {
+    font-size: 35px;
+    color: rgb(75, 75, 75);
+    margin-bottom: 10px;
+}
+
+.price-box h4 {
+    margin-top: 8px;
+}
+
+.small-images img {
+    opacity: 0.5;
+    height: 10vh;
+    display: flex;
+}
+
+.small-images img:hover {
+    opacity: 1;
+}
+
+.price-box p {
+    font-size: 20px;
+}
+
+.btn-both {
+    margin: 47px 0px;
+    display: flex;
+}
+
+div#main-imgg img {
+    height: 50vh;
+    margin-left: 50px;
+    width: auto;
+    padding-right: 50px;
+}
+
+.edit-cll {
+    background-color: #ffffff00;
+    padding: 15px 20px;
+    font-family: sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    color: rgb(8, 8, 8);
+    border: 2px solid #0999D5;
+    margin: 20px 0px;
+}
+
+.edit-cl:hover {
+    background-color: #ffffff;
+    color: #0999D5;
+    transition: 0.5s;
+    cursor: pointer;
+    font-weight: 500;
+    /* padding: 17px 20px; */
+}
+
+.edit-cll:hover {
+    background-color: #0999D5;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+    font-weight: 500;
+    /* padding: 17px 20px; */
+}
+
+.edit-cl {
+    background-color: #0999D5;
+    padding: 15px 20px;
+    font-family: sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    border: 2px solid #0999D5;
+    margin: 20px 0px;
+    margin-right: 10px;
+}
+
+div#main-imgg {
+    width: 42vw;
+}
+
+.fa {
+    font-family: 'FontAwesome'!important;
+}
+
+
+/* .about-ad {
+    margin-left: 100px;
+    margin-right: 50px;
+} */
+
+.fetrd {
+    margin: 30px 20px 10px 80px;
+}
+
+
+/* slider for relate */
+
+.container-relate {
+    margin: 10px 100px;
+}
+
+.li-cl li {
+    color: #575353;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
