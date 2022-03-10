@@ -164,9 +164,10 @@ curl_close($ch);
                         <span class="edit-cll" onclick="showDiv()" value="Show Div">&nbsp;Contact with seller</span>
                     </div>
                     <div id="seller-details"  style="display:none;" class="seller-contact" >
-                            Seller Name: &emsp;&emsp;&emsp;&emsp;<?php echo $fetch_data['data']['seller_name'] ?> <br>
-                            Seller Mobile no.:&emsp;&emsp; <?php echo $fetch_data['data']['seller_phone'] ?><br> 
-                            Location:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   <?php echo $fetch_data['data']['location'] ?> 
+                    <i class="fa-solid fa-user"></i> Seller Name: &emsp;&emsp;&emsp;&emsp;<?php echo $fetch_data['data']['seller_name'] ?> <br>
+                            
+                    <i class="fa-solid fa-phone"></i> Seller Mobile no. :&emsp;&emsp; <?php echo $fetch_data['data']['seller_phone'] ?><br> 
+                    <i class="fa-solid fa-location-dot"></i> Location:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   <?php echo $fetch_data['data']['location'] ?> 
                         </div>
 
                 </div>
