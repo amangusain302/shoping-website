@@ -1,4 +1,7 @@
 <?php
+include "server.php";
+?>
+<?php
 session_start();
 // user-curl-call
 $data_array = array(
@@ -6,7 +9,7 @@ $data_array = array(
 );
  $data = json_encode($data_array);
 
- $url = "http://localhost/fixbuy/admin/seller/dashboard/api/user-detail-api.php";
+ $url = "http://".$server_name."/fixbuy/admin/seller/dashboard/api/user-detail-api.php";
  $ch = curl_init();
 
  curl_setopt($ch, CURLOPT_URL, $url);
@@ -122,7 +125,7 @@ curl_close($ch);
                                 <div class="col d-flex align-items-center justify-content-center">
                                     <div class=" image-upload my-2 p-2 border  bg-white ">
                                         <div class="preview-container shadow">
-                                            <img src="<?php echo "image/profile-image/".$fetch_user_data['data']['user_image']; ?>" >
+                                            <img src="<?php if($_SESSION['user_image']!=null){echo "image/profile-image/".$fetch_user_data['data']['user_image'];}else{echo "image/testo/1.png";}  ?>" >
                                             <span class="fileName d-block my-2"></span>
                                             <div class="icon-container bg-secondary ">
                                                 <i class="fas fa-times icon text-white"></i>

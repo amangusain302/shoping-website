@@ -1,3 +1,6 @@
+<?php
+include "server.php";
+?>
 <div class="container post border p-0">
     <div class="heading-post-product">
         POST YOUR AD
@@ -8,7 +11,7 @@
             Include Some Details
         </div>
         <br>
-        <form action="http://localhost/fixbuy/api-call/car-product-api-call.php" method="post" enctype="multipart/form-data">
+        <form action="http://<?php echo $server_name; ?>/fixbuy/api-call/car-product-api-call.php" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>"><br>
             <input type="hidden" name="seller_name" value="<?php echo $_SESSION['username'] ?>"><br>

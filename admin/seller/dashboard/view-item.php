@@ -1,6 +1,8 @@
 <?php
 include("functions/session.php");
 
+include "../../../server.php";
+
 if(!(isset($_GET['pdt_id']) && isset($_GET['main_category'])))
 {
     header("location: index.php");
@@ -22,7 +24,7 @@ $data_array = array(
 
     // mobile-curl-call
 
-$url = "http://localhost/fixbuy/admin/seller/dashboard/api/view-item-api.php";
+$url = "http://".$server_name."/fixbuy/admin/seller/dashboard/api/view-item-api.php";
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url);

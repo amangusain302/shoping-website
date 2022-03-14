@@ -1,15 +1,11 @@
 <?php
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
 include "../../../../api/config.php";
 
-$sql ="select * from contact_us";
-
-$result = mysqli_query($con,$sql) or die("query failed");
-include "../../../../api/config.php";
-
-$sql ="select * from contact_us";
+$sql ="select * from membership";
 
 $result = mysqli_query($con,$sql) or die("query failed");
 

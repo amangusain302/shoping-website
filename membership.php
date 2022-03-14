@@ -1,5 +1,12 @@
 <?php
+include "server.php";
+?>
+<?php
 session_start();
+if(!(isset($_SESSION['role']) && $_SESSION['role']== 0))
+    {
+        header("location: form/login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,40 +45,55 @@ session_start();
 
     <!-- section start -->
     <div class="container my-cont border">
+    <?php
+    if (isset($_GET['submit']))
+        {
+            ?>
+            <div class="alert alert-success" role="alert">
+                Your Request for membership program has been submited successfully. FixeBuy team will contact you within 2-3 working days.
+            </div>
+        <?php
+        }
+        ?>
     <div class="for-center member">
         <div class="container-heading member">
             <span>MEMBERSHIP FORM</span>
         </div>
     </div>  
+    <form action="api-call/membership-api-call.php?user_id=<?php echo $_SESSION['user_id'];?>" method="post">
         <div class="row form-group">
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="First Name" class="form-control log-f">
+                <input type="text" name="first_name" placeholder="First Name" class="form-control log-f">
             </div>
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="Last Name" class="form-control log-f">
+                <input type="text" name="last_name" placeholder="Last Name" class="form-control log-f">
             </div>
         </div>
         <div class="row form-group">
             <div class="col">
-                <input type="Email" name="name" placeholder="E-mail" class="form-control log-f">
+                <input type="Email" name="email" placeholder="E-mail" class="form-control log-f">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <input type="text" name="phone" placeholder="Phone No" class="form-control log-f">
             </div>
         </div>
 
         <div class="row form-group">
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="Location" class="form-control log-f">
+                <input type="text" name="location" placeholder="Location" class="form-control log-f">
             </div>
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="Pincode" class="form-control log-f">
+                <input type="text" name="pincode" placeholder="Pincode" class="form-control log-f">
             </div>
         </div>
-        <div class="bt-n">
-            <a href="#">SUBMIT</a>
-        </div>
+        <input type="submit" name="submit" value="submit" class="btn contact-btnn"> 
+    </form>
     </div>
 
     <!-- section end -->

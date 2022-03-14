@@ -1,3 +1,6 @@
+<?php
+include "server.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +121,7 @@
                 },
             });
         </script>
-        <script src="http://localhost/fixbuy/api-call/search-call.js"></script>
+        <script src="http://<?php echo $server_name; ?>/fixbuy/api-call/search-call.js"></script>
      
     </body>
 

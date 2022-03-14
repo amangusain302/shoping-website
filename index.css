@@ -112,7 +112,15 @@ li.nav-item {
 .maindiv {
     margin-top: 5%;
     /* height: 40%; */
-    /* width: 290px; */
+    /* width: 230px; */
+    box-shadow: 0 1px 5px 5px rgb(235, 234, 234);
+    border-radius: 10px;
+}
+
+.maindiv1 {
+    margin-top: 5%;
+    /* height: 40%; */
+    width: 230px;
     box-shadow: 0 1px 5px 5px rgb(235, 234, 234);
     border-radius: 10px;
 }
@@ -571,8 +579,8 @@ button#pills-profile-tab {
 }
 
 .profile-icon {
-    width: 30px;
-    height: 30px;
+    width: 90px;
+    height: 26px;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -586,6 +594,10 @@ button#pills-profile-tab {
     align-items: center;
     justify-content: space-between;
     width: 55%;
+}
+
+.ancor-container span {
+    margin-left: 10px;
 }
 
 
@@ -647,3 +659,12 @@ input[type=radio] {
     height: 16px;
     margin-top: 10px;
 }
+
+.btn-d:focus {
+    box-shadow: none !important;
+}
+
+
+/* .btn-d {
+    box-shadow: none;
+} */

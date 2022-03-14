@@ -5,14 +5,20 @@ include "../server.php";
 if(isset($_POST['submit']))
 {
    
-$url = "http://".$server_name."/fixbuy/api/contact-us-api.php";
+$url = "http://".$server_name."/fixbuy/api/service-request-api.php";
 
 $data_array  = array(
+    'user_id' => $_GET['user_id'],
     'first_name' => $_POST['first_name'],
     'last_name' => $_POST['last_name'],
     'email' => $_POST['email'],
-    'mobile_no' => $_POST['mobile_no'],
-    'message' => $_POST['message'],
+    'phone' => $_POST['phone'],
+    'brand' => $_POST['brand'],
+    'varient' => $_POST['varient'],
+    'insurance' => $_POST['insurance'],
+    'location' => $_POST['location'],
+    'pincode' => $_POST['pincode'],
+    'category' => $_POST['category'],
     'submit' => $_POST['submit']
 );
 
@@ -27,10 +33,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $result = curl_exec($ch); 
+var_dump($result);
 $status = json_decode($result,true);
-if($status['status'])
+// var_dump($status);
+if($status)
 {
-    header("Location: ../contact.php?submit=true");
+    header("Location: ../service-form.php?submit=true");
 }
 else
 {

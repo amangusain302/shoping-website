@@ -1,6 +1,6 @@
 <?php
 include("functions/session.php");
-
+include "../../../server.php";
 // fetch
 $data_array = array(
     'user_id'=> $_GET['user_id'],
@@ -8,7 +8,7 @@ $data_array = array(
 
 $data = json_encode($data_array);
 
-$url = "http://localhost/fixbuy/admin/seller/dashboard/api/single-user-item-api.php";
+$url = "http://".$server_name."/fixbuy/admin/seller/dashboard/api/single-user-item-api.php";
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url);

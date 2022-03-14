@@ -1,9 +1,12 @@
 div#user-file {
     /* border-radius: 100%; */
-    width: 20% !important;
-    border: 1px solid #0999D5 !important;
+    width: 14vw !important;
     border-radius: 100%;
     text-align: center;
+    overflow: hidden;
+    height: 29vh !important;
+    padding: 0 !important;
+    box-shadow: 1px 0px 9px 2px #888a944a;
 }
 
 .col.text-secondary.uss {

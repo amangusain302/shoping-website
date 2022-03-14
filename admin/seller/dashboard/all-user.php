@@ -1,10 +1,11 @@
 <?php
 
 include("functions/session.php");
+include "../../../server.php";
 
 // fetch
 
-$url = "http://localhost/fixbuy/admin/seller/dashboard/api/all-user-api.php";
+$url = "http://".$server_name."/fixbuy/admin/seller/dashboard/api/all-user-api.php";
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url);

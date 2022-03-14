@@ -1,5 +1,12 @@
 <?php
+include "server.php";
+?>
+<?php
 session_start();
+if(!(isset($_SESSION['role']) && $_SESSION['role']== 0))
+    {
+        header("location: form/login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,49 +45,63 @@ session_start();
 
     <!-- section start -->
     <div class="container my-cont border">
+    <?php
+    if (isset($_GET['submit']))
+        {
+            ?>
+            <div class="alert alert-success" role="alert">
+                Your Request for Services has been submited successfully. FixeBuy team will contact you within 2-3 working days.
+            </div>
+        <?php
+        }
+        ?>
     <div class="for-center service-form">
         <div class="container-heading service-form">
             <span>SERVICE FORM</span>
         </div>
     </div>  
+    <form action="api-call/service-api-call.php?user_id=<?php echo $_SESSION['user_id'];?>" method="post">
         <div class="row form-group">
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="First Name" class="form-control log-f">
+                <input type="text" name="first_name" placeholder="First Name" class="form-control log-f">
             </div>
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="Last Name" class="form-control log-f">
+                <input type="text" name="last_name" placeholder="Last Name" class="form-control log-f">
             </div>
         </div>
         <div class="row form-group">
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="Phone" class="form-control log-f">
+                <input type="text" name="phone" placeholder="Phone" class="form-control log-f">
             </div>
             <div class="col-md-6">
 
-                <input type="text" name="name" placeholder="Brand" class="form-control log-f">
+                <input type="Email" name="email" placeholder="Email" class="form-control log-f">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-6">
+                <input type="text" name="brand" placeholder="Brand" class="form-control log-f">
+            </div>
+            <div class="col-6">
+                <input type="text" name="varient" placeholder="Varient" class="form-control log-f">
             </div>
         </div>
         <div class="row form-group">
             <div class="col">
-                <input type="Email" name="name" placeholder="Varient" class="form-control log-f">
+                <input type="text" name="insurance" placeholder="Insurance" class="form-control log-f">
             </div>
         </div>
         <div class="row form-group">
             <div class="col">
-                <input type="text" name="name" placeholder="Insurance" class="form-control log-f">
+                <input type="text" name="location" placeholder="Location" class="form-control log-f">
             </div>
         </div>
         <div class="row form-group">
             <div class="col">
-                <input type="text" name="name" placeholder="Location" class="form-control log-f">
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col">
-                <input type="text" name="name" placeholder="Pincode" class="form-control log-f">
+                <input type="text" name="pincode" placeholder="Pincode" class="form-control log-f">
 
               
             </div>
@@ -88,17 +109,16 @@ session_start();
         <div class="row ">
             <div class="col-md-2">
             <label for="">BIKE -</label>&nbsp;
-                <input type="radio" name="name" placeholder="Pincode" class="log-f">
+                <input type="radio" name="category" value="bike" placeholder="bike" class="log-f">
             </div>
             <div class="col-md-2">
             <label for="">CAR -</label>&nbsp;
-                <input type="radio" name="name" placeholder="Pincode" class="log-f">
+                <input type="radio" name="category" value="car" placeholder="car" class="log-f">
             </div>
         </div>
         
-        <div class="bt-n">
-            <a href="#">SUBMIT</a>
-        </div>
+        <input type="submit" name="submit" value="submit" class="btn contact-btnn"> 
+    </form>
     </div>
 
     <!-- section end -->

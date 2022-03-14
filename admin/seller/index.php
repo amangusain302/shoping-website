@@ -1,4 +1,6 @@
-
+<?php
+include "../../server.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,9 +54,10 @@
                         <h3>Admin Login </h3>
                         <!-- <p>Access to the most powerfull tool in the entire design and web industry.</p> -->
                         <div class="page-links">
-                            <a href="index.php" class="active">Login</a><a href="register.php">Register</a>
+                            <a href="index.php" class="active">Login</a>
+                            <!-- <a href="register.php">Register</a> -->
                         </div>
-                        <form action="http://localhost/fixbuy/api-call/login-api-call.php" method="post">
+                        <form action="http://<?php echo $server_name; ?>/fixbuy/api-call/login-api-call.php" method="post">
                             <input class="form-control text-dark shadow-none" type="text" name="user_email" placeholder="E-mail Address" required>
                             <input class="form-control text-dark shadow-none" type="password" name="password" placeholder="Password" required>
                             <input type="hidden" name="role" value="1">

@@ -1,4 +1,5 @@
 // live search in header
+
 $(document).ready(function() {
     $("#search").keypress(function() {
         console.log(true);

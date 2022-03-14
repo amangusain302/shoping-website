@@ -1,7 +1,10 @@
 <?php
+include "../server.php";
+?>
+<?php
 
 
-$url = "http://localhost/fixbuy/api/register-api.php";
+$url = "http://".$server_name."/fixbuy/api/register-api.php";
 $data_array = array(
     'username' => $_POST['username'],
     'user_email'=> $_POST['user_email'],

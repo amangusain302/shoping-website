@@ -1,4 +1,7 @@
 <?php
+include "server.php";
+?>
+<?php
 session_start();
 if(!(isset($_SESSION['role']) && $_SESSION['role']== 0))
     {
@@ -20,6 +23,7 @@ if(!(isset($_SESSION['role']) && $_SESSION['role']== 0))
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <!-- custom css -->

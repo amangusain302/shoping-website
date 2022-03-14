@@ -1,5 +1,7 @@
 <?php
 	session_start();
+
+    include "server.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME PAGE</title>
+    <title></title>
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -87,14 +89,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="inline-menu">
-                    <div class="setmnu">
+                    <div class="setmnu">    
 
                         <ul class="navbar-nav menu">
                             <li class="nav-item aa">
                                 <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
                             </li>
                             <li class="nav-item aa">
-                                <a class="nav-link" href="product.php">PRODUCT</a>
+                                <a class="nav-link" href="product.php"><?php include("server.php") ?></a>
                             </li>
                             <li class="nav-item aa">
                                 <a class="nav-link" href="contact.php">CONTACT US</a>
@@ -266,10 +268,16 @@
 
         </div>
         <br>
+
+        <div><a class="btn btn-success" href="<?php echo "http://".$server_name."/fixbuy/server.php"?>"> link button</a></div>
         <br>
 
+
+
         <div class="about-ad">
-            <h4>About this item:-</h4>
+            <h4>About this item:-
+        
+            </h4>
             <br>
             <div class="ad-bt">
                 <ul>
@@ -356,3 +364,15 @@
 </body>
 
 </html>
+
+
+
+
+
+<?php echo $server_name; ?>
+
+<?php
+include "server.php";
+?>
+
+".$server_name."

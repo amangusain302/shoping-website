@@ -1,3 +1,6 @@
+<?php
+include "server.php";
+?>
 <nav class="navbar navbar-expand-lg headerr">
     <div class="container-fluid">
 
@@ -55,29 +58,21 @@
         <div class="catagry">
             <div class="row catagry-color p-0 m-0">
                 <div class="col-1 disp"><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;<a href="product.php">ALL</a></div>
-                <div class="col-1 disp"><a href="#">BIKES</a></div>
-                <div class="col-1 disp"><a href="#">CARS</a></div>
-                <div class="col-1 disp"><a href="#">PHONE</a></div>
-                <div class="col-1 disp"><a href="service-section.php">SERVICES</a></div>
+                <div class="col-1 disp"><a href="bikes-page.php">BIKES</a></div>
+                <div class="col-1 disp"><a href="cars-page.php">CARS</a></div>
+                <div class="col-1 disp"><a href="mobiles-page.php">PHONE</a></div>
+                <div class="col-1 disp"><a href="service-form.php">SERVICES</a></div>
+                <div class="col-1 disp"><a href="#"></a></div>
                 <div class="col-1 disp"><a href="#"></a></div>
                 <div class="col-1 disp"><a href="#"></a></div>
                 <div class="col-1 disp"><a href="#"></a></div>
 
-                <div class="col-4">
+                <!-- <div class="col-4"> -->
                     <!-- <a href="#"></a> -->
                     <!--dropdown  -->
-                    <div class="dropdown">
-                        <button class="btn btn-secondary btn-d dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            LOGIN/SIGNUP
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#"> <i class="fas fa-user"></i>&nbsp;&nbsp;Logout</a></li>
-                            <li><a class="dropdown-item" href="#"> <i class="fas fa-bars"></i>&nbsp;&nbsp;Profile</a></li>
-                            <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-                        </ul>
-                    </div>
+                   
                     <!-- end -->
-                </div>
+                <!-- /div>< -->
                 <!-- <div class="col-1">
                         <a href="#"></a>
                     </div> -->

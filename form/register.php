@@ -1,4 +1,6 @@
-
+<?php
+include "../server.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +45,7 @@
                         <div class="page-links">
                             <a href="login.php">Login</a><a href="register.php" class="active">Register</a>
                         </div>
-                        <form action="http://localhost/fixbuy/api-call/register-api-call.php" method="post">
+                        <form action="http://<?php echo $server_name; ?>/fixbuy/api-call/register-api-call.php" method="post">
                             <input class="form-control shadow-none text-dark" type="text" name="username" placeholder="Username" required>
                             <input class="form-control shadow-none text-dark" type="email" name="user_email" placeholder="E-mail Address" required>
                             <input class="form-control shadow-none text-dark" type="password" name="password" placeholder="Password" required>

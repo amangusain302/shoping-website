@@ -1,7 +1,10 @@
 <?php
+include "../server.php";
+?>
+<?php
 
 
-$url = "http://localhost/fixbuy/api/login-api.php";
+$url = "http://".$server_name."/fixbuy/api/login-api.php";
 $data_array = array(
     'user_email'=> $_POST['user_email'],
     'password'=> $_POST['password'],

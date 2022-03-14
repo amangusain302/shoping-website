@@ -1,4 +1,7 @@
 <?php
+include "server.php";
+?>
+<?php
 	session_start();
 ?>
 <!DOCTYPE html>
@@ -78,13 +81,28 @@
     <?php include "header.php";?>
     <!-- section  -->
     <div class="container">
+        <?php
+    if (isset($_GET['submit']))
+        {
+            ?>
+            <br>
+            <br>
+            <br>
+            <div class="alert alert-success" role="alert">
+                
+                Your message has been submited successfully.
+            </div>
+        <?php
+        }
+        ?>
+
         <div class="for-center-contact">
             <div class="container-heading-contact">
                 <span> LETS CONVERSATION?</span>
             </div>
         </div>
-    </div> 
-    <form action="http://localhost/fixbuy/api-call/contact-us-api-call.php" method="post">
+    </div>   
+    <form action="http://<?php echo $server_name; ?>/fixbuy/api-call/contact-us-api-call.php" method="post">
     <div class="form-set">
         <div class="row p-0 m-0 form-group">
             <div class="col-md-6 col-12">

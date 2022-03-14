@@ -1,4 +1,7 @@
 <?php
+include "../server.php";
+?>
+<?php
 if(isset($_POST['submit']))
 {
     $image_path = array();
@@ -37,7 +40,7 @@ if(isset($_POST['submit']))
     }
 
 
-$url = "http://localhost/fixbuy/api/car-product-api.php";
+$url = "http://".$server_name."/fixbuy/api/car-product-api.php";
 
 $data_array  = array(
     'user_id'  =>  $_POST['user_id'],

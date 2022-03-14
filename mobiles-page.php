@@ -3,10 +3,24 @@ include "server.php";
 ?>
 <?php
 session_start();
+
+// mobile-curl-call
+
+$url = "http://".$server_name."/fixbuy/api/mobile-product-fetch-api.php";
+$mobile = curl_init();
+
+curl_setopt($mobile, CURLOPT_URL, $url);
+curl_setopt($mobile, CURLOPT_RETURNTRANSFER, 1);
+
+$result = curl_exec($mobile);
+
+$fetch_data_mobile = json_decode($result, true);
+
+curl_close($mobile);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,18 +41,21 @@ session_start();
     <link rel="stylesheet" href="mob-res.css">
     <link rel="stylesheet" href="tab-res.css">
     <!-- jquery -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- cdn js css for owl crausal -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <!-- cdn js for owl crausal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
     <style>
         .swiper {
             width: 100%;
             height: 100%;
             background: #000;
         }
-        
+
         .swiper-slide {
             font-size: 18px;
             color: #fff;
@@ -46,7 +63,7 @@ session_start();
             box-sizing: border-box;
             padding: 40px 60px;
         }
-        
+
         .parallax-bg {
             position: absolute;
             left: 0;
@@ -57,16 +74,16 @@ session_start();
             background-size: cover;
             background-position: center;
         }
-        
+
         .swiper-slide .title {
             font-size: 41px;
             font-weight: 300;
         }
-        
+
         .swiper-slide .subtitle {
             font-size: 21px;
         }
-        
+
         .swiper-slide .text {
             font-size: 14px;
             max-width: 400px;
@@ -76,72 +93,60 @@ session_start();
 </head>
 
 <body>
-    <?php include "header.php";?>
-
-    <!-- faq -->
-    <div class="container faq-container">
-        <div class="for-center-faq">
-            <div class="container-heading-faq">
-                <span> ASKED QUESTIONS?</span>
+    <!-- header -->
+    <?php include("header.php");?>
+    <!-- prodyuct section start -->
+        
+    <div class="container">
+        
+           
+        </div>
+        <div class="for-center-PHONE">
+            <div class="container-heading-PHONE">
+                <span>PHONE ITEMS</span>
             </div>
         </div>
-        <div class="row p-0 m-0">
-            <div class="col-md-8 col-12">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What Is A Real Estate Broker?
-        </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as
-                                well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>,
-                                though the transition does limit overflow.
-                            </div>
-                        </div>
+        <div class="row">
+        <?php
+            foreach ($fetch_data_mobile as $value) {
+            ?>
+                <div class="col-md-3 col-12">
+                    <a href="single-product.php?pdt_id=<?php echo $value['pdt_id'];?>&main_category=<?php echo $value['main_category']?>" class="ancher">
+                        <div class="shadow p-3 mb-5 bg-white maindiv">
+                            <div class="img-wh"><img src="<?php echo "image/upload/".$value['pdt_image']; ?>" class="pdt-img"></div>
+                            <div class="pdt-details">
+                                <div class="price"><?php echo "₹".$value['set_price']?></div>
+                                <div class="font-weight-light desc"><?php echo $value['year']?></div>
+                                <div class="prd-name"><?php if(strlen($value['ad_title'])>25){ 
+                                                    $adtitle = str_split($value['ad_title']);
+                                                    $showtitle="";
+                                                    for($x=0;$x<25; $x++)
+                                                    {
+                                                        $showtitle = $showtitle.$adtitle[$x];
+                                                    }
 
-                    </div>
-                    <br>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Why Should I Use A Real Estate Salesperson?
-        </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance,
-                                as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>,
-                                though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            What If My Offer Is Rejected?   
-        </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse  show active" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance,
-                                as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>,
-                                though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
+                                                    echo $showtitle."...";
+                                                }
+                                                else
+                                                {
+                                                    echo $value['ad_title'];
+                                                }
+                                    ?></div>
+                                <span class="adrs"><?php echo $value['location']." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"?></span><span class="year"><?php echo $value['post_date']?></span>
+                                <div class="row p-0 m-0">
+                                    <div class="col p-0">
+                                        <div class="buy-bt"> <a href="single-product.php?pdt_id=<?php echo $value['pdt_id'];?>&main_category=<?php echo $value['main_category']?>" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-4 col-12">
-                <div class="accordian-img">
-                    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_CeuefT.json" background="transparent" speed="1" class="faq-lottie" loop autoplay></lottie-player>
-                    <!--<img src="images/image/9.jpg" alt="hello user " class="accordian-imh-wh">-->
-                </div>
-            </div>
+            <?php
+            }
+            ?>
+
         </div>
     </div>
 
@@ -152,9 +157,8 @@ session_start();
 
 
 
-
     <!-- footer -->
-    <footer>
+    <footer >
         <div class="footer">
             <di class="row p-0 m-0">
                 <div class="col-md-3 col-12">
@@ -205,7 +209,7 @@ session_start();
                         <a href="#"><img src="image/white/3.png" alt=""></a>
                     </div>
                 </div>
-        </div>
+        
         </div>
         <div class="copyright">
             <hr>
@@ -215,17 +219,12 @@ session_start();
             </div>
 
         </div>
+        </div>
     </footer>
-
-
-
-
-
-    <!-- lotties -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
     <!-- bootsrap -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="http://<?php echo $server_name; ?>/fixbuy/api-call/search-call.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <!-- 5 version  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -233,6 +232,7 @@ session_start();
     <!-- slider of swiper -->
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
 
     <!-- Initialize Swiper -->
     <script>
@@ -251,7 +251,8 @@ session_start();
             },
         });
     </script>
-     <script src="http://<?php echo $server_name; ?>/fixbuy/api-call/search-call.js"></script>
+   
+
 </body>
 
-</html>
+</php>

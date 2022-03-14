@@ -197,7 +197,7 @@ div#main-imgg img {
     border-radius: 5px;
     color: rgb(8, 8, 8);
     border: 2px solid #0999D5;
-    margin: 20px 0px;
+    margin: 20px 10px;
 }
 
 .edit-cl:hover {
@@ -211,8 +211,8 @@ div#main-imgg img {
 }
 
 .edit-cll:hover {
-    background-color: #0999D5;
-    color: white;
+    background-color: #0999D5 !important;
+    color: white !important;
     transition: 0.2s;
     cursor: pointer;
     font-weight: 500;
@@ -260,6 +260,18 @@ div#main-imgg img {
 }
 
 div#seller-details {
+    /* border: 2px solid #0999D5; */
+    border-radius: 8px;
+    background-color: #0999D5;
+    color: white;
+    padding: 13px;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+    box-shadow: 1px 1px 7px 1px #60809dc9;
+}
+
+div#seller-details1 {
     /* border: 2px solid #0999D5; */
     border-radius: 8px;
     background-color: #0999D5;

@@ -25,5 +25,20 @@
 			<div class="menu-title">Contact us</div>
 		</a>
 	</li>
+
+	<li class="mt-0">
+		<a href="membership.php">
+			<div class="parent-icon"><i class='fas fa-landmark'></i>
+			</div>
+			<div class="menu-title">Membership Requests</div>
+		</a>
+	</li>
+	<li class="mt-0">
+		<a href="service.php">
+			<div class="parent-icon"><i class="fas fa-tools"></i>
+			</div>
+			<div class="menu-title">Service</div>
+		</a>
+	</li>
 	
 </ul>

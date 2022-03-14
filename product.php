@@ -1,9 +1,12 @@
 <?php
+include "server.php";
+?>
+<?php
 session_start();
 
 // mobile-curl-call
 
-$url = "http://localhost/fixbuy/api/mobile-product-fetch-api.php";
+$url = "http://".$server_name."/fixbuy/api/mobile-product-fetch-api.php";
 $mobile = curl_init();
 
 curl_setopt($mobile, CURLOPT_URL, $url);
@@ -17,7 +20,7 @@ curl_close($mobile);
 
 // car-curl-call
 
-$url = "http://localhost/fixbuy/api/car-product-fetch-api.php";
+$url = "http://".$server_name."/fixbuy/api/car-product-fetch-api.php";
 $car = curl_init();
 
 curl_setopt($car, CURLOPT_URL, $url);
@@ -31,7 +34,7 @@ curl_close($car);
 
 // bike-curl-call
 
-$url = "http://localhost/fixbuy/api/bike-product-fetch-api.php";
+$url = "http://".$server_name."/fixbuy/api/bike-product-fetch-api.php";
 $bike = curl_init();
 
 curl_setopt($bike, CURLOPT_URL, $url);
@@ -65,6 +68,7 @@ curl_close($bike);
     <link rel="stylesheet" href="mob-res.css">
     <link rel="stylesheet" href="tab-res.css">
     <!-- jquery -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- cdn js css for owl crausal -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -172,7 +176,7 @@ curl_close($bike);
 
         <div class="for-center-car">
             <div class="container-heading-car">
-                <span>BIIKE ITEMS</span>
+                <span>BIKE ITEMS</span>
             </div>
         </div>
         <div class="row p-0 m-0">
@@ -339,7 +343,7 @@ curl_close($bike);
         </div>
     </footer>
     <!-- bootsrap -->
-    <script src="http://localhost/fixbuy/api-call/search-call.js"></script> 
+    <script src="http://<?php echo $server_name; ?>/fixbuy/api-call/search-call.js"></script> 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

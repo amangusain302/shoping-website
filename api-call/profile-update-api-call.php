@@ -1,4 +1,7 @@
 <?php
+include "../server.php";
+?>
+<?php
 
 if(isset($_POST['update']))
 {
@@ -32,7 +35,7 @@ if(isset($_POST['update']))
                       
 
 
-$url = "http://localhost/fixbuy/api/profile-update-api.php";
+$url = "http://".$server_name."/fixbuy/api/profile-update-api.php";
 
 $data_array  = array(
     'user_id'  =>  $_GET['user_id'],

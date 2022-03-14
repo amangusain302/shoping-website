@@ -1,4 +1,6 @@
-
+<?php
+include "../../../server.php";
+?>
 <header>
 	<div class="topbar d-flex align-items-center">
 		<nav class="navbar navbar-expand">
@@ -64,7 +66,7 @@
 
 					<div class="dropdown-divider mb-0"></div>
 					</li>
-					<li><a class="dropdown-item" href="http://localhost/fixbuy/admin/seller/logout-admin.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+					<li><a class="dropdown-item" href="http://<?php echo $server_name; ?>/fixbuy/admin/seller/logout-admin.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
 					</li>
 				</ul>
 			</div>

@@ -1,12 +1,12 @@
 <?php
 include("functions/session.php");
-
+include "../../../server.php";
 $data_array = array(
     "user_id" => $_GET['user_id']
 );
  $data = json_encode($data_array);
 
- $url = "http://localhost/fixbuy/admin/seller/dashboard/api/user-detail-api.php";
+ $url = "http://".$server_name."/fixbuy/admin/seller/dashboard/api/user-detail-api.php";
  $ch = curl_init();
 
  curl_setopt($ch, CURLOPT_URL, $url);
@@ -88,12 +88,23 @@ curl_close($ch);
             <div class="page-content ">
                 <h5 class="my-2">User Details</h5>
 
+                <?php
+                if(isset($_GET['status']))
+                {
+                ?>
+                <div class="alert alert-success" role="alert">
+                Changes Updated.
+                </div>
+                <?php
+                }   
+                ?>
+
                 <div class="card">
                     <table>
                         <div class="col text-secondary uss">
                             <div class=" image-upload my-2 p-2 border  bg-white " id="user-file">
                                 <div class="preview-container">
-                                    <img  src="<?php echo "../../../image/profile-image/".$fetch_user_data['data']['user_image']; ?>">
+                                    <img  src="<?php if($fetch_user_data['data']['user_image']!=null){ echo "../../../image/profile-image/".$fetch_user_data['data']['user_image']; } else { echo "../../../image/testo/1.png"; }?>">
                                     <span class="fileName d-block my-2"></span>
                                     <div class="icon-container bg-secondary ">
                                         <i class="fas fa-times icon text-white"></i>
@@ -133,9 +144,29 @@ curl_close($ch);
                             <td><?php echo $fetch_user_data['data']['adhaar_no']; ?></td>
                         </tr>
                         <tr align="center">
-                            <td class="viw sbb sb"  colspan="3">
-                                <a href="single-user-items.php?user_id=<?php echo $fetch_user_data['data']['user_id']; ?>&username=<?php echo $fetch_user_data['data']['username']; ?>">View user listing</a>
+                            <td class="viw sbb sb"  colspan="1">
+                                <a href="single-user-items.php?user_id=<?php echo $fetch_user_data['data']['user_id']; ?>&username=<?php echo $fetch_user_data['data']['username']; ?>">View user listing   </a>
                             </td>
+                            <td   colspan="1">
+                            </td>
+                            <?php
+                                if( $fetch_user_data['data']['status']=="free")
+                                {
+                            ?>
+                            <td class="viw sbb sb"  colspan="1">
+                                <a href="api/api-call-assign-membership.php?user_id=<?php echo $fetch_user_data['data']['user_id']; ?>&status=active">Assign Membership</a>
+                            </td>
+                            <?php
+                                }
+                                else
+                                {
+                            ?>
+                            <td class="viw sbb sb"  colspan="1">
+                                <a href="api/api-call-assign-membership.php?user_id=<?php echo $fetch_user_data['data']['user_id']; ?>&status=free">Deny Membership</a>
+                            </td>
+                            <?php
+                                }
+                            ?>
                         </tr>
                         
 

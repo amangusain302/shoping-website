@@ -1,19 +1,21 @@
 <?php
-	session_start();
-    if(!(isset($_GET['pdt_id']) && isset($_GET['main_category'])))
-    {
-        header("location: product.php");
-    }
+include "server.php";
+?>
+<?php
+session_start();
+if (!(isset($_GET['pdt_id']) && isset($_GET['main_category']))) {
+    header("location: product.php");
+}
 $data_array = array(
-        'pdt_id'=> $_GET['pdt_id'],
-        'main_category'=> $_GET['main_category']
-    );
-    
-    $data = json_encode($data_array);
+    'pdt_id' => $_GET['pdt_id'],
+    'main_category' => $_GET['main_category']
+);
 
-    // mobile-curl-call
+$data = json_encode($data_array);
 
-$url = "http://localhost/fixbuy/api/product-detail-api.php";
+// mobile-curl-call
+
+$url = "http://" . $server_name . "/fixbuy/api/product-detail-api.php";
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -27,8 +29,49 @@ $fetch_data = json_decode($result, true);
 
 curl_close($ch);
 
+// mobile-curl-call
 
- 
+$url = "http://" . $server_name . "/fixbuy/api/mobile-product-fetch-api.php";
+$mobile = curl_init();
+
+curl_setopt($mobile, CURLOPT_URL, $url);
+curl_setopt($mobile, CURLOPT_RETURNTRANSFER, 1);
+
+$result = curl_exec($mobile);
+
+$fetch_data_mobile = json_decode($result, true);
+
+curl_close($mobile);
+
+// car-curl-call
+
+$url = "http://" . $server_name . "/fixbuy/api/car-product-fetch-api.php";
+$car = curl_init();
+
+curl_setopt($car, CURLOPT_URL, $url);
+curl_setopt($car, CURLOPT_RETURNTRANSFER, 1);
+
+$result = curl_exec($car);
+
+$fetch_data_car = json_decode($result, true);
+
+curl_close($car);
+
+// bike-curl-call
+
+$url = "http://" . $server_name . "/fixbuy/api/bike-product-fetch-api.php";
+$bike = curl_init();
+
+curl_setopt($bike, CURLOPT_URL, $url);
+curl_setopt($bike, CURLOPT_RETURNTRANSFER, 1);
+
+$result = curl_exec($bike);
+
+$fetch_data_bike = json_decode($result, true);
+
+curl_close($bike);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +149,7 @@ curl_close($ch);
 </head>
 
 <body>
-<?php include "header.php"; ?>
+    <?php include "header.php"; ?>
 
 
 
@@ -117,15 +160,15 @@ curl_close($ch);
             <div class="wrappper">
                 <div class="product-box">
                     <div class="small-images">
-                        <img src="<?php echo 'image/upload/'.$fetch_data['data']['pdt_image'] ?>" alt="" onClick="clickimg(this)">
-                        <img src="<?php echo 'image/upload/'.$fetch_data['data']['pdt_image2'] ?>" alt="" onClick="clickimg(this)">
-                        <img src="<?php echo 'image/upload/'.$fetch_data['data']['pdt_image3'] ?>" alt="" onClick="clickimg(this)">
-                        <img src="<?php echo 'image/upload/'.$fetch_data['data']['pdt_image4'] ?>" alt="" onClick="clickimg(this)">
-                        <img src="<?php echo 'image/upload/'.$fetch_data['data']['pdt_image'] ?>" alt="" onClick="clickimg(this)">
-                        <img src="<?php echo 'image/upload/'.$fetch_data['data']['pdt_image2'] ?>" alt="" onClick="clickimg(this)">
+                        <img src="<?php echo 'image/upload/' . $fetch_data['data']['pdt_image'] ?>" alt="" onClick="clickimg(this)">
+                        <img src="<?php echo 'image/upload/' . $fetch_data['data']['pdt_image2'] ?>" alt="" onClick="clickimg(this)">
+                        <img src="<?php echo 'image/upload/' . $fetch_data['data']['pdt_image3'] ?>" alt="" onClick="clickimg(this)">
+                        <img src="<?php echo 'image/upload/' . $fetch_data['data']['pdt_image4'] ?>" alt="" onClick="clickimg(this)">
+                        <img src="<?php echo 'image/upload/' . $fetch_data['data']['pdt_image'] ?>" alt="" onClick="clickimg(this)">
+                        <img src="<?php echo 'image/upload/' . $fetch_data['data']['pdt_image2'] ?>" alt="" onClick="clickimg(this)">
                     </div>
                     <div id="main-imgg">
-                        <img src="<?php echo 'image/upload/'.$fetch_data['data']['pdt_image'] ?>" alt="product image" id="imm">
+                        <img src="<?php echo 'image/upload/' . $fetch_data['data']['pdt_image'] ?>" alt="product image" id="imm">
                     </div>
                 </div>
                 <div class="text-buy">
@@ -143,7 +186,7 @@ curl_close($ch);
 
                     </div>
                     <div class="price-box">
-                        <strike>Price:- &#8377; <?php echo ((25/100)*$fetch_data['data']['set_price'])+$fetch_data['data']['set_price'] ?> </strike>
+                        <strike>Price:- &#8377; <?php echo ((25 / 100) * $fetch_data['data']['set_price']) + $fetch_data['data']['set_price'] ?> </strike>
                         <h4> &#8377; <?php echo $fetch_data['data']['set_price'] ?> </h4>
 
                     </div>
@@ -157,18 +200,55 @@ curl_close($ch);
                 </select>
             </p> -->
                     <p>
-                        Qty:- <input type="number   " value="1" class="set-ww">
+                        Qty:- <input type="number" value="1" class="set-ww">
                     </p>
+
+                    <?php
+                    include "api/config.php";
+                    $user_id = $fetch_data['data']['user_id'];
+                    $sql = "select * from user where user_id = $user_id ;";
+
+                    $result = mysqli_query($con, $sql) or die("query failed");
+
+                    $output = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                    // print_r($output);
+
+                    ?>
+
                     <div class="btn-both">
-                        <span class=" edit-cl">&nbsp;Chat with seller</span>
-                        <span class="edit-cll" onclick="showDiv()" value="Show Div">&nbsp;Contact with seller</span>
+                        <?php
+                        if (isset($_SESSION['user_id'])) {
+                        ?>
+                            <a href="https://wa.me/<?php echo '91' . $fetch_data['data']['seller_phone'] ?> " target="_blank" style="text-decoration: none;" class=" edit-cl">
+                            <?php
+                        } else {
+                            ?>
+                                <a href="form/login.php" style="text-decoration: none;" class=" edit-cl">
+                                <?php
+                            }
+                                ?>
+
+                                <i class="fa-brands fa-whatsapp"></i>
+                                Chat with seller</a>
+                                <a id="clickbtn" <?php
+                                                    if (!isset($_SESSION['user_id'])) {
+                                                    ?> href="" <?php
+                                                    }
+                                    ?> style="text-decoration: none;" class="edit-cll" onclick="showDiv()" value="Show Div"><i class="fa-solid fa-address-card"></i> Contact with seller</a>
                     </div>
-                    <div id="seller-details"  style="display:none;" class="seller-contact" >
-                    <i class="fa-solid fa-user"></i> Seller Name: &emsp;&emsp;&emsp;&emsp;<?php echo $fetch_data['data']['seller_name'] ?> <br>
-                            
-                    <i class="fa-solid fa-phone"></i> Seller Mobile no. :&emsp;&emsp; <?php echo $fetch_data['data']['seller_phone'] ?><br> 
-                    <i class="fa-solid fa-location-dot"></i> Location:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   <?php echo $fetch_data['data']['location'] ?> 
-                        </div>
+
+                    <div id="seller-details1" style="display:none;" class="seller-contact">
+                        <i class="fa-solid fa-phone"></i> FixBuy contact: &emsp;&emsp; 999999999 <br>
+
+                        <i class="fa-solid fa-envelope"></i> FixBuy Email. :&emsp;&emsp; contactforbuy@fixbuy.com <br>
+                    </div>
+                    <div id="seller-details" style="display:none;" class="seller-contact">
+                        <i class="fa-solid fa-user"></i> Seller Name: &emsp;&emsp;&emsp;&emsp;<?php echo $fetch_data['data']['seller_name'] ?> <br>
+                        <i class="fa-solid fa-phone"></i> Seller Mobile no. :&emsp;&emsp; <?php echo $fetch_data['data']['seller_phone'] ?><br>
+                        <i class="fa-solid fa-envelope"></i> Seller Email: &emsp;&emsp;&emsp;&emsp;<?php echo $output[0]['user_email'] ?> <br>
+                        <i class="fa-solid fa-location-dot"></i> Location:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?php echo $fetch_data['data']['location'] ?>
+                    </div>
 
                 </div>
 
@@ -217,7 +297,7 @@ curl_close($ch);
                     <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam obcaecati eveniet ducimus aut impedit, minima corrupti explicabo similique cupiditate illum aperiam neque aspernatur esse repellat deserunt, vel possimus sint. Dolorem.</li>
                     <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriet consectetur adipisicing elit. Laboriosam obcaecati eveniet ducimus aut impedit, minima corrupti explicabo similique cupiditate illum aperiam neque aspernatur esse repellat deserunt, vel possimus sint. Dolorem.</li>
                     <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam obcaecati eveniet ducimus aut impedit, minima corrupti explicabo similique cupidirrupti explicabo similique cupidirrupti explicabo similique cupiditate illum aperiam neque aspernatur esse repellat deserunt, vel possimus sint. Dolorem.</li> -->
-                  
+
                 </ul>
             </div>
         </div>
@@ -225,95 +305,157 @@ curl_close($ch);
 
 
 
-<br>
+    <br>
     <!-- owl casusal -->
     <div class="container-relate">
-    <div class="for-center-relate">
+        <div class="for-center-relate">
             <div class="container-heading-relate">
                 <span>Related Products:-</span>
             </div>
         </div>
+
         <div class="carousel owl-carousel">
-            <div class="card-testo">
-            <a href="#c" class="ancher">
-                    <div class="shadow p-3 mb-5 bg-white maindiv">
-                        <div class="img-wh"><img src="image/property/b6.jpg" class="pdt-img pdtt-wh"></div>
-                        <div class="pdt-details">
-                            <div class="price"> ₹ 12,00,00,000</div>
-                            <div class="font-weight-light desc">2015 - 35,000km</div>
-                            <div class="prd-name">Maruti suzuki</div>
-                            <span class="adrs">MALVIYA NAGAR, DELHI</span><span class="year">JAN 22</span>
-                            <div class="row p-0 m-0">
-                                <div class="col p-0">
-                                    <div class="buy-bt"> <a href="single-product.php" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card-testo">
-            <a href="#" class="ancher">
-                    <div class="shadow p-3 mb-5 bg-white maindiv">
-                        <div class="img-wh"><img src="image/property/b5.jpg" class="pdt-img pdtt-wh"></div>
-                        <div class="pdt-details">
-                            <div class="price"> ₹ 12,00,00,000</div>
-                            <div class="font-weight-light desc">2015 - 35,000km</div>
-                            <div class="prd-name">Maruti suzuki</div>
-                            <span class="adrs">MALVIYA NAGAR, DELHI</span><span class="year">JAN 22</span>
-                            <div class="row p-0 m-0">
-                                <div class="col p-0">
-                                    <div class="buy-bt"> <a href="single-product.php" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
-                                </div>
+            <?php
+            if ($fetch_data['data']['main_category'] == $fetch_data_mobile[0]['main_category']) {
+            ?>
+                <?php
+                $flag = 0;
+                foreach ($fetch_data_mobile as $value) {
+                    if ($flag == 10) {
+                        break;
+                    }
+                ?>
+                    <div class="col-md-3 col-12 ">
+                        <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
+                            <div class="shadow p-3 mb-5 bg-white maindiv1">
+                                <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
+                                <div class="pdt-details">
+                                    <div class="price"><?php echo "₹" . $value['set_price'] ?></div>
+                                    <div class="font-weight-light desc"><?php echo $value['year'] ?></div>
+                                    <div class="prd-name"><?php if (strlen($value['ad_title']) > 25) {
+                                                                $adtitle = str_split($value['ad_title']);
+                                                                $showtitle = "";
+                                                                for ($x = 0; $x < 25; $x++) {
+                                                                    $showtitle = $showtitle . $adtitle[$x];
+                                                                }
 
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card-testo">
-            <a href="#" class="ancher">
-                    <div class="shadow p-3 mb-5 bg-white maindiv">
-                        <div class="img-wh"><img src="image/property/b6.jpg" class="pdt-img pdtt-wh"></div>
-                        <div class="pdt-details">
-                            <div class="price"> ₹ 12,00,00,000</div>
-                            <div class="font-weight-light desc">2015 - 35,000km</div>
-                            <div class="prd-name">Maruti suzuki</div>
-                            <span class="adrs">MALVIYA NAGAR, DELHI</span><span class="year">JAN 22</span>
-                            <div class="row p-0 m-0">
-                                <div class="col p-0">
-                                    <div class="buy-bt"> <a href="single-product.php" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
-                                </div>
+                                                                echo $showtitle . "...";
+                                                            } else {
+                                                                echo $value['ad_title'];
+                                                            }
+                                                            ?></div>
+                                    <span class="adrs"><?php echo $value['location'] . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" ?></span><span class="year"><?php echo $value['post_date'] ?></span>
+                                    <div class="row p-0 m-0">
+                                        <div class="col p-0">
+                                            <div class="buy-bt"> <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
+                                        </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card-testo">
-            <a href="#" class="ancher">
-                    <div class="shadow p-3 mb-5 bg-white maindiv">
-                        <div class="img-wh"><img src="image/property/b4.jpg" class="pdt-img pdtt-wh"></div>
-                        <div class="pdt-details">
-                            <div class="price"> ₹ 12,00,00,000</div>
-                            <div class="font-weight-light desc">2015 - 35,000km</div>
-                            <div class="prd-name">Maruti suzuki</div>
-                            <span class="adrs">MALVIYA NAGAR, DELHI</span><span class="year">JAN 22</span>
-                            <div class="row p-0 m-0">
-                                <div class="col p-0">
-                                    <div class="buy-bt"> <a href="single-product.php" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
+                                    </div>
                                 </div>
-
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </a>
-            </div>
+                <?php
+                    $flag++;
+                }
+                ?>
+            <?php
+            } elseif ($fetch_data['data']['main_category'] == $fetch_data_bike[0]['main_category']) {
+            ?>
+                <?php
+                $flag = 0;
+                foreach ($fetch_data_bike as $value) {
+                    if ($flag == 10) {
+                        break;
+                    }
+                ?>
+                    <div class="col-md-3 col-12">
+                        <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
+                            <div class="shadow p-3 mb-5 bg-white maindiv1">
+                                <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
+                                <div class="pdt-details">
+                                    <div class="price"><?php echo "₹" . $value['set_price'] ?></div>
+                                    <div class="font-weight-light desc"><?php echo $value['year'] . " - " . $value['km_driven'] . "Km" ?></div>
+                                    <div class="prd-name"><?php if (strlen($value['ad_title']) > 25) {
+                                                                $adtitle = str_split($value['ad_title']);
+                                                                $showtitle = "";
+                                                                for ($x = 0; $x < 25; $x++) {
+                                                                    $showtitle = $showtitle . $adtitle[$x];
+                                                                }
+
+                                                                echo $showtitle . "...";
+                                                            } else {
+                                                                echo $value['ad_title'];
+                                                            }
+                                                            ?></div>
+                                    <span class="adrs"><?php echo $value['location'] . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" ?></span><span class="year"><?php echo $value['post_date'] ?></span>
+                                    <div class="row p-0 m-0">
+                                        <div class="col p-0">
+                                            <div class="buy-bt"> <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                    $flag++;
+                }
+                ?>
+            <?php
+            } else {
+            ?>
+                <?php
+                $flag = 0;
+                foreach ($fetch_data_car as $value) {
+                    if ($flag == 10) {
+                        break;
+                    }
+                ?>
+                    <div class="col-md-3 col-12">
+                        <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
+                            <div class="shadow p-3 mb-5 bg-white maindiv1">
+                                <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
+                                <div class="pdt-details">
+                                    <div class="price"><?php echo "₹" . $value['set_price'] ?></div>
+                                    <div class="font-weight-light desc"><?php echo $value['year'] . " - " . $value['km_driven'] . "Km" ?></div>
+                                    <div class="prd-name"><?php if (strlen($value['ad_title']) > 25) {
+                                                                $adtitle = str_split($value['ad_title']);
+                                                                $showtitle = "";
+                                                                for ($x = 0; $x < 25; $x++) {
+                                                                    $showtitle = $showtitle . $adtitle[$x];
+                                                                }
+
+                                                                echo $showtitle . "...";
+                                                            } else {
+                                                                echo $value['ad_title'];
+                                                            }
+                                                            ?></div>
+                                    <span class="adrs"><?php echo $value['location'] . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" ?></span><span class="year"><?php echo $value['post_date'] ?></span>
+                                    <div class="row p-0 m-0">
+                                        <div class="col p-0">
+                                            <div class="buy-bt"> <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="buy-bttn"><i class="fa fa-shopping-cart">&nbsp;&nbsp;Buy Now</i></a></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                    $flag++;
+                }
+                ?>
+            <?php
+            }
+            ?>
+
         </div>
     </div>
-      <!-- footer -->
-      <footer>
+    <!-- footer -->
+    <footer>
         <div class="footer">
             <di class="row p-0 m-0">
                 <div class="col-md-3 col-12">
@@ -436,8 +578,25 @@ curl_close($ch);
         });
     </script>
     <script>
+        var status = "<?php echo $output[0]['status']; ?>";
+
         function showDiv() {
-         document.getElementById('seller-details').style.display = "block";
+            <?php
+            if (isset($_SESSION["user_id"])) {
+            ?>
+                if (status == 'active') {
+                    document.getElementById('seller-details1').style.display = "block";
+                } else {
+                    document.getElementById('seller-details').style.display = "block";
+                }
+            <?php
+            } else {
+            ?>
+
+                document.getElementById('clickbtn').href = "form/login.php";
+            <?php
+            }
+            ?>
         }
     </script>
 
@@ -446,8 +605,8 @@ curl_close($ch);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
     <!-- 5 version  -->
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 
 
