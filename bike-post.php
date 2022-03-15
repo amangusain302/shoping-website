@@ -20,7 +20,7 @@ include "server.php";
             <input type="text" name="seller_phone" placeholder="SELLER PHONE*" class="form-control set-pd-input-post"><br>
 
             <label for="title">MAIN CATEGORY*</label>
-            <input type="text" name="main_category" placeholder="MAIN CATEGORY*" class="form-control set-pd-input-post"><br>
+            <input type="text" name="main_category" placeholder="MAIN CATEGORY*" class="form-control set-pd-input-post" value = "bikes"><br>
             <label for="title">SUB CATEGORY*</label>
             <input type="text" name="sub_category" placeholder="SUB CATEGORY*" class="form-control set-pd-input-post"><br>
             <label for="brand">BRAND*</label>
