@@ -1,0 +1,14 @@
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    a.buy-bttn {
+        background: #0999D5;
+        color: white;
+        padding: 8px 13px;
+        border-radius: 3px;
+        font-size: 12px;
+        /* width: 100%; */
+        font-family: 'Poppins';
+        /* object-fit: cover; */
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+}

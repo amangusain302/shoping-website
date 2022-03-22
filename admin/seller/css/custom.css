@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #0999D5;
+    --secondary-color: white;
+}
+
+.form-button .ibtn {
+    color: black !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}

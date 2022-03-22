@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #0999D5;
+    --secondary-color: white;
+}
+
+.image-upload {
+    /* height: 8vh; */
+    /* border: 1px solid black; */
+    position: relative;
+    border-radius: 10px;
+}
+
+.image-upload .preview-container {
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image-upload .preview-container .icon-container {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    z-index: 20;
+    /* border: 1px solid black; */
+}
+
+.image-upload .preview-container img {
+    width: 50%;
+    height: auto;
+    overflow: auto;
+}
+
+.image-upload .icon {
+    /* font-size: 0.6rem; */
+    font-size: 1rem;
+    /* color: white; */
+}
+
+.image-upload input[type='file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+#user-file .preview-container {
+    height: 120px;
+}
+
+#user-file .preview-container img {
+    width: 100% !important;
+    overflow: hidden;
+    height: 100% !important;
+}
+
+
+/* Side bar */
+
+.simplebar-content-wrapper {
+    background-color: var(--primary-color);
+}
+
+.sidebar-wrapper .metismenu .mm-active>a,
+.sidebar-wrapper .metismenu a:active {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.sidebar-wrapper .metismenu a:focus,
+.sidebar-wrapper .metismenu a:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--primary-color);
+}
+
+.sidebar-wrapper .metismenu a {
+    color: white;
+}
+
+.sidebar-header {
+    background-color: var(--primary-color);
+    /* color: white; */
+    border: none;
+}
+
+.logo-text,
+.toggle-icon {
+    color: white;
+}
+
+.user-info .user-name,
+h5,
+h6,
+th,
+.dropdown-item {
+    color: var(--primary-color);
+}
+
+.submitBtn,
+.submitBtn:hover {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.table-responsive .status {
+    padding: 5px 10px !important;
+    font-size: 0.7rem;
+    border-radius: 50px;
+}
+
+.color-btn {
+    color: #fff !important;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-success {
+    margin-right: 10px;
+}
+
+.table-light {
+    color: var(--primary-color);
+}
+
+.padding-td {
+    padding: 23px 0 !important;
+}
+
+@media (max-width:767px) {
+    .page-content {
+        padding: 0px !important;
+    }
+    .submitBtn {
+        width: 100% !important;
+        padding: 10px !important;
+    }
+    .sidebar-wrapper {
+        box-shadow: none !important;
+    }
+    .card-body {
+        padding: 0;
+        margin: 10px;
+    }
+}
