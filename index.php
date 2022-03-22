@@ -126,7 +126,7 @@ curl_close($bike);
 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper">
     <div class="parallax-bg" data-swiper-parallax="-23%"></div>
     <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image: url(image/service/car_poster.jpg);    height: 47vh;
+        <div class="swiper-slide" style="background-image: url(image/service/Car_poster.jpg);    height: 47vh;
             background-position: center;
             background-size: cover;">
             <!-- <div class="title" data-swiper-parallax="-300">Slide 1</div>
