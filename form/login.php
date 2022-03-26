@@ -32,6 +32,14 @@ include "../server.php";
                                 </div>
                             </a>
                         </div>
+                        <?php
+                         if (isset($_GET['update']))
+                         {
+                     ?>
+                     <div class ="alert alert-success" style="background-color: #02c94b " >congrats!&nbsp;&nbsp;&nbsp;your password has been changed succesfully.<br>  Now please login with your registered email and password.</div> 
+                     <?php    
+                     }
+                     ?>
 
                         <?php
                         if(isset($_GET['error']))
@@ -46,7 +54,7 @@ include "../server.php";
                         if (isset($_GET['created']))
                             {
                         ?>
-                        <div class ="alert alert-success" style="background-color: #02c94b " >congrats!&nbsp;&nbsp;&nbsp;your account has been created.<br>  Now please login with registered email and password</div> 
+                        <div class ="alert alert-success" style="background-color: #02c94b " >congrats!&nbsp;&nbsp;&nbsp;your account has been created.<br>  Now please login with your registered email and password.</div> 
                         <?php    
                         }
                         ?>
@@ -63,6 +71,7 @@ include "../server.php";
                                 <button id="submit" type="submit" value="true" name="login" class="ibtn w-100 p-2 login-bt ">Login</button>
                             </div>
                         </form>
+                        <div class="forgotpass"><a href="recover-password.php">forgot password?</a></div>
                         <!-- <div class="other-links">
                             <span>Or login with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
                         </div> -->

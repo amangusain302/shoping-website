@@ -10,12 +10,14 @@ if (isset($_SESSION['username']) && $_SESSION['role'] == 0) {
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item " href="profile.php?user_id=<?php echo $_SESSION['user_id']; ?> "> <i class="fas fa-user"></i>&nbsp;&nbsp;Profile</a></li>
-            <li><a class="dropdown-item" href="form/logout.php"> <i class="fas fa-bars"></i>&nbsp;&nbsp;Logout</a></li>
+            <li><a class="dropdown-item" href="form/logout.php"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a></li>
             <li><a class="dropdown-item" href="membership.php"> <i class="fas fa-landmark"></i>&nbsp;&nbsp;membership</a></li>
+            <li><a class="dropdown-item" href="posted-items.php?user_id=<?php echo $_SESSION['user_id'];?>"> <i class="fa-solid fa-list"></i>&nbsp;&nbsp;Posted Items</a></li>
             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
         </ul>
     </div>
 <?php } else { ?>
-    <div class="col-1"><a href="form/login.php">LOGIN/SIGNUP</a></div>
+    <div class="col-1"></div>
+    <div class="col-2"><a href="form/login.php"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp; Login</a></div>
 <?php }
 ?>

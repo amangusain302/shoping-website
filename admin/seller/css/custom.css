@@ -8,3 +8,18 @@
     font-size: 1rem !important;
     font-weight: bold !important;
 }
+
+.forgotpass a {
+    text-decoration: none;
+    color: black;
+}
+
+.forgotpass a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.row>* {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}

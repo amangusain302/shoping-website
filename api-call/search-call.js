@@ -3,7 +3,7 @@ $(document).ready(function() {
     $("#search").keypress(function() {
         console.log(true);
         $.ajax({
-            url: "http://fixebuy.in/api/search-api.php",
+            url: "http://localhost/fixbuy/api/search-api.php",
             type: "POST",
             data: { name: $("#search").val(), },
             success: function(data) {

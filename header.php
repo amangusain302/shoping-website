@@ -29,9 +29,9 @@ include "server.php";
                         </li>
                     </ul>
                 </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" id="search" placeholder="Search" aria-label="Search">
-                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" id="Search" type="submit">Search</button> -->
+                <form class="form-inline my-2 my-lg-0" action="search-result.php" method="get">
+                    <input class="form-control mr-sm-2" type="text" id="search" placeholder="Search" name="search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="Search" type="submit" name="submit" value="true">Search</button>
                     <div class="row p-0 m-0 mob-cen">
                         <div class="col-12 mainbutton">
                             <a href="<?php

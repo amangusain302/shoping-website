@@ -593,7 +593,7 @@ button#pills-profile-tab {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 55%;
+    width: 67%;
 }
 
 .ancor-container span {
@@ -662,6 +662,21 @@ input[type=radio] {
 
 .btn-d:focus {
     box-shadow: none !important;
+}
+
+
+/*  search no result  */
+
+.noresult {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0999D5;
 }
 
 

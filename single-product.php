@@ -239,9 +239,9 @@ curl_close($bike);
                     </div>
 
                     <div id="seller-details1" style="display:none;" class="seller-contact">
-                        <i class="fa-solid fa-phone"></i> FixBuy contact: &emsp;&emsp; 999999999 <br>
+                        <i class="fa-solid fa-phone"></i> FixeBuy contact: &emsp;&emsp; 999999999 <br>
 
-                        <i class="fa-solid fa-envelope"></i> FixBuy Email. :&emsp;&emsp; contactforbuy@fixbuy.com <br>
+                        <i class="fa-solid fa-envelope"></i> FixeBuy Email. :&emsp;&emsp; contactforbuy@fixebuy.com <br>
                     </div>
                     <div id="seller-details" style="display:none;" class="seller-contact">
                         <i class="fa-solid fa-user"></i> Seller Name: &emsp;&emsp;&emsp;&emsp;<?php echo $fetch_data['data']['seller_name'] ?> <br>

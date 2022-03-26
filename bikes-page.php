@@ -113,7 +113,7 @@ curl_close($bike);
                             <div class="img-wh"><img src="<?php echo "image/upload/".$value['pdt_image']; ?>" class="pdt-img"></div>
                             <div class="pdt-details">
                                 <div class="price"><?php echo "₹".$value['set_price']?></div>
-                                <div class="font-weight-light desc"><?php echo $value['year']?></div>
+                                <div class="font-weight-light desc"><?php echo $value['year'] . " - " . $value['km_driven'] . "Km" ?></div>
                                 <div class="prd-name"><?php if(strlen($value['ad_title'])>25){ 
                                                     $adtitle = str_split($value['ad_title']);
                                                     $showtitle="";
