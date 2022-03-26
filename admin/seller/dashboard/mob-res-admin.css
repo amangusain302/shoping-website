@@ -303,6 +303,49 @@
         padding: 1px 0px 0px 11px;
         text-transform: uppercase;
     }
+    /* user profile */
+    .h5,
+    h5 {
+        font-size: 12px;
+        padding-top: 7px !important;
+    }
+    div#user-file {
+        /* border-radius: 100%; */
+        width: 14vw !important;
+        border-radius: 100%;
+        text-align: center;
+        overflow: hidden;
+        height: 21vh !important;
+        width: 32vw !important;
+        padding: 0 !important;
+        box-shadow: 1px 0px 9px 2px #888a944a;
+    }
+    table {
+        margin-top: 36px;
+    }
+    tr td {
+        text-align: center;
+        padding: 0px;
+        font-size: 12px;
+        border-bottom: 1px solid;
+    }
+    tr th {
+        text-align: center;
+        padding: 0px;
+        font-size: 12px;
+        border-bottom: 1px solid;
+    }
+    td.sbb {
+        padding: 39px 1px;
+        border: none;
+    }
+    .sb a {
+        background: #0999D5;
+        font-size: 13px;
+        color: white;
+        padding: 12px 14px;
+        border-radius: 5px;
+    }
 }
 
 @media (max-width:767px) {

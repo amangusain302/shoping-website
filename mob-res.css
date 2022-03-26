@@ -300,4 +300,7 @@
         padding: 1px 0px 0px 11px;
         text-transform: uppercase;
     }
+    .btn-outline-success {
+        margin-left: 33%;
+    }
 }

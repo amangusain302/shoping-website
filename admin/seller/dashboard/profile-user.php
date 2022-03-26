@@ -113,32 +113,32 @@ curl_close($ch);
                                 <!-- <input type="file" class="form-control w-100 my-2 shadow-none user-fileUpload" contenteditable="true"> -->
                             </div>
                         </div>
-                        <tr align="justify">
+                        <tr >
                             <th>Full Name</th>
                             <th>-</th>
                             <td><?php echo $fetch_user_data['data']['username']; ?></td>
                         </tr>
-                        <tr align="justify">
+                        <tr >
                             <th>Email</th>
                             <th>-</th>
                             <td><?php echo $fetch_user_data['data']['user_email']; ?></td>
                         </tr>
-                        <tr align="justify">
+                        <tr >
                             <th>Phone</th>
                             <th>-</th>
                             <td><?php echo $fetch_user_data['data']['phone']; ?></td>
                         </tr>
-                        <tr align="justify">
+                        <tr >
                             <th>D.O.B</th>
                             <th>-</th>
                             <td><?php echo $fetch_user_data['data']['date_of_birth']; ?></td>
                         </tr>
-                        <tr align="justify">
+                        <tr >
                             <th>Address</th>
                             <th>-</th>
                             <td><?php echo $fetch_user_data['data']['address']; ?></td>
                         </tr>
-                        <tr align="justify">
+                        <tr>
                             <th>Id proof (Adhaar Only)</th>
                             <th>-</th>
                             <td><?php echo $fetch_user_data['data']['adhaar_no']; ?></td>

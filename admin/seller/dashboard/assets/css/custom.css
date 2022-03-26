@@ -138,20 +138,3 @@ th,
 .padding-td {
     padding: 23px 0 !important;
 }
-
-@media (max-width:767px) {
-    .page-content {
-        padding: 0px !important;
-    }
-    .submitBtn {
-        width: 100% !important;
-        padding: 10px !important;
-    }
-    .sidebar-wrapper {
-        box-shadow: none !important;
-    }
-    .card-body {
-        padding: 0;
-        margin: 10px;
-    }
-}
