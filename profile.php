@@ -111,13 +111,26 @@ curl_close($ch);
         <div class="page-wrapper">
 
             <div class="page-content ">
+                <br>
+            <?php
+            if(isset($_GET['status']))
+            {
+            ?>
+            <div class="alert alert-success">
+                    <strong>Update Success!</strong>
+            </div>
+            <?php
+            }
+            ?>
+
+
                 <h5 class="my-2">User Profile</h5>
 
 
 
                 <div class="card">
 
-                <form action="api-call/profile-update-api-call.php?user_id=<?php echo $fetch_user_data['data']['user_id'] ?>" method="post" enctype="multipart/form-data">
+                <form action="api-call/profile-update-api-call.php?user_id=<?php echo $fetch_user_data['data']['user_id'] ?>&status=true" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         
                         <div class="myi">
@@ -221,7 +234,11 @@ curl_close($ch);
 
 
     <!-- footer -->
-    <footer>
+
+    <?php
+   include "footer.php"
+   ?>
+    <!-- <footer>
         <div class="footer">
             <di class="row p-0 m-0">
                 <div class="col-md-3 col-12">
@@ -282,13 +299,13 @@ curl_close($ch);
             </div>
 
         </div>
-    </footer>
+    </footer> -->
     <!-- bootsrap -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
     <!-- 5 version  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
     <script src="http://localhost/api-call/search-call.js"></script>
     <!-- slider of swiper -->
     <!-- Swiper JS -->

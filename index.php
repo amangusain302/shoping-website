@@ -52,6 +52,7 @@ curl_close($bike);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME PAGE</title>
+    <link rel="icon" href="image/service/favicon.ico">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -181,6 +182,16 @@ curl_close($bike);
 </div>
 </div>
 <!-- slider end  -->
+
+
+<div class="col-12 mainbuttonn" id="sell-btn">
+                            <a href="<?php
+                                        if (isset($_SESSION['username'])) {
+                                            echo "post-product.php";
+                                        } else {
+                                            echo "form/login.php";
+                                        } ?>"  class="btn"> + SELL</a>
+        </div>
     <!-- property section  -->
     
     <div class="for-center">
@@ -199,7 +210,7 @@ curl_close($bike);
                     break;
                 }
             ?>
-                <div class="col-md-3 col-12">
+                <div class="col-md-3 col-6">
                     <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
                         <div class="shadow p-3 mb-5 bg-white maindiv">
                             <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
@@ -249,7 +260,7 @@ curl_close($bike);
                     break;
                 }
             ?>
-                <div class="col-md-3 col-12">
+                <div class="col-md-3 col-6">
                     <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
                         <div class="shadow p-3 mb-5 bg-white maindiv">
                             <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
@@ -300,7 +311,7 @@ curl_close($bike);
                     break;
                 }
             ?>
-                <div class="col-md-3 col-12">
+                <div class="col-md-3 col-6">
                     <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
                         <div class="shadow p-3 mb-5 bg-white maindiv">
                             <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
@@ -452,12 +463,13 @@ curl_close($bike);
         <br><br><br><br>
     </div>
     <!-- footer -->
+   
     <footer>
         <div class="footer">
             <di class="row p-0 m-0">
-                <div class="col-md-3 col-12">
+                <div class="col-md-4 col-12">
                     <div class="footerlogo">
-                        <img src="image/logo/FB-white.png" alt="logo" class="footer-logo">
+                        <a href="index.php"><img src="image/logo/FB-white.png" alt="logo" class="footer-logo"></a>
                     </div>
                     <div class="pp">
                         <p><i class="far fa-address-card"></i>&nbsp;&nbsp;&nbsp;&nbsp; Noida Sector-64 , UP</p>
@@ -468,20 +480,20 @@ curl_close($bike);
 
 
                 </div>
-                <div class="col-md-3 col-12">
+                <div class="col-md-4 col-12">
                     <div class="subhead">
                         menu
                     </div>
                     <div class="menuu">
                         <ul class="submenuu">
-                            <li><a href="#">HOME</a></li>
-                            <li><a href="#">CONTACT US</a></li>
+                            <li><a href="index.php">HOME</a></li>
+                            <li><a href="contact.php">CONTACT US</a></li>
                             <li><a href="#">PROPERTIES</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="faq.php">FAQ</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-12">
+                <!-- <div class="col-md-3 col-6">
                     <div class="subhead">
                         Learn More
                     </div>
@@ -490,10 +502,9 @@ curl_close($bike);
                         <li><a href="#">PRIVACY</a></li>
                         <li><a href="#">TERM & CONDITION</a></li>
                         <li><a href="#">ACCOUNT</a></li>
-                        <li><a href="#">FAQ</a></li>
                     </ul>
-                </div>
-                <div class="col-md-3 col-12">
+                </div> -->
+                <div class="col-md-4 col-12">
                     <div class="subhead">
                         Get IN Touch
                     </div>
@@ -508,8 +519,12 @@ curl_close($bike);
         <div class="copyright">
             <hr>
             <div class="row copyrightt p-0 m-0">
-                <div class="col-md-6 col-12 foocet">@copyright 2021 - Fixebuy.in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|| </div>
-                <div class="col-md-6 col-12 mobcopy"> All rights reserved</div>
+                    <div class="col-md-12 col-12 foocet">@copyright 2021 - Fixebuy.in </div>                   
+                 <!-- <div class="col-md-6 col-12 mobcopy"> All rights reserved</div>  -->
+            </div>
+            <div class="learn-more">
+            <a class="col-md-6 col-6 " href="#">Privacy Policy</a>
+            <a class="col-md-6 col-6 " href="#">Term & Condition</a>
             </div>
 
         </div>
@@ -595,6 +610,17 @@ curl_close($bike);
                 }
             })
         })
+    </script>
+    <script>
+        // When the user scrolls down 200px down sell button will disapear
+window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+  if (document.body.scrollTop > 3950 || document.documentElement.scrollTop > 3950) {
+    document.getElementById("sell-btn").style.display = "none";
+  } else {
+    document.getElementById("sell-btn").style.display = "block";
+  }
+}
     </script>
 
 </body>

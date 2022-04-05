@@ -154,7 +154,11 @@ session_start();
 
 
     <!-- footer -->
-    <footer>
+    <?php
+   include "footer.php"
+   ?>
+
+    <!-- <footer>
         <div class="footer">
             <di class="row p-0 m-0">
                 <div class="col-md-3 col-12">
@@ -215,7 +219,7 @@ session_start();
             </div>
 
         </div>
-    </footer>
+    </footer> -->
 
 
 

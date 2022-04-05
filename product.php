@@ -136,7 +136,7 @@ curl_close($bike);
                 <?php
                 foreach ($fetch_data_car as $value) {
                 ?>
-                    <div class="col-md-3 col-12">
+                    <div class="col-md-3 col-6">
                         <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
                             <div class="shadow p-3 mb-5 bg-white maindiv">
                                 <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
@@ -181,7 +181,7 @@ curl_close($bike);
                     <?php
                     foreach ($fetch_data_bike as $value) {
                     ?>
-                        <div class="col-md-3 col-12">
+                        <div class="col-md-3 col-6">
                             <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
                                 <div class="shadow p-3 mb-5 bg-white maindiv">
                                     <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
@@ -226,7 +226,7 @@ curl_close($bike);
                     <?php
                     foreach ($fetch_data_mobile as $value) {
                     ?>
-                        <div class="col-md-3 col-12">
+                        <div class="col-md-3 col-6">
                             <a href="single-product.php?pdt_id=<?php echo $value['pdt_id']; ?>&main_category=<?php echo $value['main_category'] ?>" class="ancher">
                                 <div class="shadow p-3 mb-5 bg-white maindiv">
                                     <div class="img-wh"><img src="<?php echo "image/upload/" . $value['pdt_image']; ?>" class="pdt-img"></div>
@@ -264,8 +264,11 @@ curl_close($bike);
             </div>
         </div>
     </div>
+    <?php
+    include "footer.php";
+    ?>
     <!-- footer -->
-    <footer>
+    <!-- <footer>
         <div class="footer">
             <di class="row p-0 m-0">
                 <div class="col-md-3 col-12">
@@ -327,21 +330,21 @@ curl_close($bike);
 
         </div>
 
-    </footer>
+    </footer> -->
     <!-- bootsrap -->
-    <script src="http://<?php echo $server_name; ?>/fixbuy/api-call/search-call.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+     <script src="http://<?php echo $server_name; ?>/fixbuy/api-call/search-call.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
     <!-- 5 version  -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
     <!-- slider of swiper -->
     <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
 
-    <!-- Initialize Swiper -->
+    <!-- Initialize Swiper
     <script>
         var swiper = new Swiper(".mySwiper", {
             speed: 600,
@@ -357,7 +360,7 @@ curl_close($bike);
                 prevEl: ".swiper-button-prev",
             },
         });
-    </script>
+    </script> -->
 
 
 </body>

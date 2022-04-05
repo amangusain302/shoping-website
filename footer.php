@@ -1,43 +1,14 @@
 <?php
 include "server.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME PAGE</title>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- sweiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <!-- custom css -->
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="heading.css">
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- cdn js css for owl crausal -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <!-- cdn js for owl crausal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-
-    <body>
 
         <!-- footer -->
         <footer>
             <div class="footer">
                 <di class="row p-0 m-0">
-                    <div class="col-md-3 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="footerlogo">
-                            <img src="image/logo/FB-white.png" alt="logo" class="footer-logo">
+                            <a href="index.php"><img src="image/logo/FB-white.png" alt="logo" class="footer-logo"></a>
                         </div>
                         <div class="pp">
                             <p><i class="far fa-address-card"></i>&nbsp;&nbsp;&nbsp;&nbsp; Noida Sector-64 , UP</p>
@@ -48,20 +19,20 @@ include "server.php";
 
 
                     </div>
-                    <div class="col-md-3 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="subhead">
                             menu
                         </div>
                         <div class="menuu">
                             <ul class="submenuu">
-                                <li><a href="#">HOME</a></li>
-                                <li><a href="#">CONTACT US</a></li>
+                                <li><a href="index.php">HOME</a></li>
+                                <li><a href="contact.php">CONTACT US</a></li>
                                 <li><a href="#">PROPERTIES</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="faq.php">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-12">
+                    <!-- <div class="col-md-3 col-6">
                         <div class="subhead">
                             Learn More
                         </div>
@@ -70,10 +41,9 @@ include "server.php";
                             <li><a href="#">PRIVACY</a></li>
                             <li><a href="#">TERM & CONDITION</a></li>
                             <li><a href="#">ACCOUNT</a></li>
-                            <li><a href="#">FAQ</a></li>
                         </ul>
-                    </div>
-                    <div class="col-md-3 col-12">
+                    </div> -->
+                    <div class="col-md-4 col-12">
                         <div class="subhead">
                             Get IN Touch
                         </div>
@@ -86,13 +56,17 @@ include "server.php";
             </div>
             </div>
             <div class="copyright">
-                <hr>
-                <div class="row copyrightt p-0 m-0">
-                    <div class="col-md-6 col-12 foocet">@copyright 2021 - Fixebuy.in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|| </div>
-                    <div class="col-md-6 col-12 mobcopy"> All rights reserved</div>
-                </div>
-
+            <hr>
+            <div class="row copyrightt p-0 m-0">
+                    <div class="col-md-12 col-12 foocet">@copyright 2021 - Fixebuy.in </div>                   
+                 <!-- <div class="col-md-6 col-12 mobcopy"> All rights reserved</div>  -->
             </div>
+            <div class="learn-more">
+            <a class="col-md-6 col-6 " href="#">Privacy Policy</a>
+            <a class="col-md-6 col-6 " href="#">Term & Condition</a>
+            </div>
+
+        </div>
         </footer>
         <!-- bootsrap -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

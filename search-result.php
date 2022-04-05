@@ -184,7 +184,10 @@ else{
     </div>
 
         <!-- footer -->
-        <footer>
+        <?php
+        include "footer.php";
+        ?>
+        <!-- <footer>
             <div class="footer">
                 <di class="row p-0 m-0">
                     <div class="col-md-3 col-12">
@@ -246,7 +249,7 @@ else{
 
             </div>
     </div>
-    </footer>
+    </footer> -->
     <!-- bootsrap -->
     <script src="http://<?php echo $server_name; ?>/fixbuy/api-call/search-call.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -254,7 +257,7 @@ else{
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <!-- 5 version  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
     <!-- slider of swiper -->
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
