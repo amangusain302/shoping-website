@@ -1,3 +1,3 @@
 <?php
-$server_name ='localhost/fixbuy';
+$server_name ='shoping-website/';
 ?>
